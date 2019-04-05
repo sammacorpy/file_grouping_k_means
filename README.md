@@ -56,6 +56,7 @@ def weightmat(filea,fileb):
 
 # 2.	Converting extension into weight array
 Function for converting extension into weight array.
+
 def weightext():
 if ext.upper() in audiosformat:
             return (0)
@@ -73,8 +74,8 @@ if ext.upper() in audiosformat:
 # 3.	Merging two weight array and form weight matrix 
 
 
-costfname=[]
-    
+
+    costfname=[]
     for i in range(len(fname)):
         mxwt=0
         for j in range(len(fname)):
@@ -99,9 +100,8 @@ kmeans = KMeans(n_clusters=6).fit(mxt)
 
 
 
-# Complete Code is in proj.py
+ Complete Code is in proj.py
 
-# Any modification is highly welcomed
+Any modification is highly welcomed
 
 
-# -Shivam Kumar Verma
