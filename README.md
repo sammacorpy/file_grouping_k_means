@@ -3,37 +3,37 @@
 objective is to copy file from pen drive to the specified group of folders automatically when we insert the pen drive.
 Below is the sample code to detect the drive of the inserted pen drive.
 
-import string
-from ctypes import windll
-import time
-import os
+    import string
+    from ctypes import windll
+    import time
+    import os
 
-def get_drives():
-    drives = []
-    bitmask = windll.kernel32.GetLogicalDrives()
-    for letter in string:
-        if bitmask & 1:
-            drives.append(letter)
-        bitmask >>= 1
-    return drives
+    def get_drives():
+        drives = []
+        bitmask = windll.kernel32.GetLogicalDrives()
+        for letter in string:
+            if bitmask & 1:
+                drives.append(letter)
+            bitmask >>= 1
+        return drives
 
 
-if __name__ == '__main__':
-    before = set(get_drives())
-    pause = input("Please insert the USB device, then press ENTER")
-    print ('Please wait...')
-    time.sleep(5)
-    after = set(get_drives())
-    drives = after - before
-    delta = len(drives)
+    if __name__ == '__main__':
+        before = set(get_drives())
+        pause = input("Please insert the USB device, then press ENTER")
+        print ('Please wait...')
+        time.sleep(5)
+        after = set(get_drives())
+        drives = after - before
+        delta = len(drives)
 
-    if (delta):
-        for drive in drives:
-            if os.system("cd " + drive + ":") == 0:
-                newly_mounted = drive
-                print ("There were %d drives added: %s. Newly mounted drive letter is %s" % (delta, drives, newly_mounted))
-    else:
-        print("Sorry, I couldn't find any newly mounted drives.")
+        if (delta):
+            for drive in drives:
+                if os.system("cd " + drive + ":") == 0:
+                    newly_mounted = drive
+                    print ("There were %d drives added: %s. Newly mounted drive letter is %s" % (delta, drives, newly_mounted))
+        else:
+            print("Sorry, I couldn't find any newly mounted drives.")
 
 
 
@@ -43,22 +43,23 @@ if __name__ == '__main__':
 # 1.	Converting file name into weight array
 
 Function for converting file name to weight array
-def weightmat(filea,fileb):
-    c=""
-    weight=0
-    for i in filea:
-        c+=i
-        if c in fileb:
-            weight+=1
-        	        else:
-            return weight
-    return weight
+    
+    def weightmat(filea,fileb):
+        c=""
+        weight=0
+        for i in filea:
+            c+=i
+            if c in fileb:
+                weight+=1
+            else:
+                return weight
+        return weight
 
 # 2.	Converting extension into weight array
 Function for converting extension into weight array.
 
-def weightext():
-if ext.upper() in audiosformat:
+    def weightext():
+        if ext.upper() in audiosformat:
             return (0)
         elif ext.upper() in videosformat:
             return (100)
