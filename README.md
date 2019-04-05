@@ -87,7 +87,7 @@ Function for converting extension into weight array.
         costfname.append(mxwt)
 
 # 4.	Find centroids in the weight matrix and make clusters of file with the found centroid.
-kmeans = KMeans(n_clusters=6).fit(mxt)
+    kmeans = KMeans(n_clusters=6).fit(mxt)
 
 
 
